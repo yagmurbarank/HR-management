@@ -1,8 +1,8 @@
 package com.ybk.hr_management.repository;
 
 
-import com.ybk.hr_management.model.LeaveRequest;
-import com.ybk.hr_management.model.User;
+import com.ybk.hr_management.model.entity.LeaveRequest;
+import com.ybk.hr_management.model.entity.User;
 
 import java.util.List;
 import java.util.Optional;

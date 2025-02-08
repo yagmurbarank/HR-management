@@ -1,7 +1,7 @@
 package com.ybk.hr_management.repository;
 
-import com.ybk.hr_management.model.LeaveRequest;
-import com.ybk.hr_management.model.LeaveType;
+import com.ybk.hr_management.model.entity.LeaveRequest;
+import com.ybk.hr_management.model.entity.LeaveType;
 import com.ybk.hr_management.model.enums.Status;
 
 import java.util.List;
