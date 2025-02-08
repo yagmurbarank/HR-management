@@ -1,4 +1,4 @@
-package com.ybk.hr_management.model;
+package com.ybk.hr_management.model.entity;
 
 import com.ybk.hr_management.model.enums.Status;
 import lombok.Getter;
