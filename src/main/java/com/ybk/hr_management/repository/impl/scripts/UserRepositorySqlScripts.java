@@ -19,58 +19,38 @@ public class UserRepositorySqlScripts {
 
     public static final String CREATE_USER =
             sqlBuilder.delete(0, sqlBuilder.length())
-                    .append("INSERT INTO user (name, lastName, department, username, password, role, createdAt, updatedAt) ")
+                    .append("INSERT INTO user (first_name, last_name, department, username, password, role, created_at, updated_at) ")
                     .append("VALUES (:name, :lastName, :department, :username, :password, :role, :createdAt, :updatedAt)")
                     .toString();
 
     public static final String UPDATE_USER =
             sqlBuilder.delete(0, sqlBuilder.length())
-                    .append("UPDATE user SET department = :department, roleMethod = :role, updatedAt = :updatedAt WHERE id = :id")
+                    .append("UPDATE user SET password = :password, department = :department, role = :role, updated_at = :updated_at WHERE id = :id")
+                    .toString();
+    public static final String DELETE_USER =
+            sqlBuilder.delete(0, sqlBuilder.length())
+                    .append("DELETE user WHERE id = :id")
                     .toString();
 
     public static final String SAVE_USER =
             sqlBuilder.delete(0, sqlBuilder.length())
-                    .append("UPDATE user SET name = :name, lastName = :lastName, department = :department, ")
-                    .append("username = :username, role = :role, updatedAt = :updatedAt WHERE id = :id")
+                    .append("UPDATE user SET first_name = :name, last_name = :lastName, department = :department, ")
+                    .append("username = :username, role = :role, updated_at = :updatedAt WHERE id = :id")
                     .toString();
 
     public static final String UPDATE_USER_PASSWORD =
             sqlBuilder.delete(0, sqlBuilder.length())
                     .append("UPDATE USER_LOGIN SET PASSWORD=:password" +
-                            "WHERE USER_ID=:Id").toString();
+                            "WHERE id=:Id").toString();
 
     public static final String UPDATE_USER_LEAVE_REQUEST =
             sqlBuilder.delete(0, sqlBuilder.length())
-                    .append("UPDATE user SET leaveRequest = :leaveRequest WHERE id = :userId")
-                    .toString();
-
-    public static final String GET_LEAVE_REQUESTS_BY_USER_ID =
-            sqlBuilder.delete(0, sqlBuilder.length())
-                    .append("SELECT * FROM leave_request WHERE user_id = :userId")
-                    .toString();
-
-    public static final String GET_ALL_USERS_BY_DEPARTMENT_ID =
-            sqlBuilder.delete(0, sqlBuilder.length())
-                    .append("SELECT id FROM user WHERE department_id = :departmentId")
+                    .append("UPDATE user SET leave_request = :leaveRequest WHERE user_id = :userId")
                     .toString();
 
     public static final String FIND_USER_BY_ID =
             sqlBuilder.delete(0, sqlBuilder.length())
-                    .append("SELECT * FROM user WHERE id = :userId")
+                    .append("SELECT * FROM user WHERE id = :id")
                     .toString();
 
-    public static final String FIND_DELETED_USER =
-            sqlBuilder.delete(0, sqlBuilder.length())
-                    .append("SELECT * FROM user WHERE id = :userId AND is_deleted = true")
-                    .toString();
-
-    public static final String FIND_PASSIVE_USER =
-            sqlBuilder.delete(0, sqlBuilder.length())
-                    .append("SELECT * FROM user WHERE id = :userId AND status = 'passive'")
-                    .toString();
-
-    public static final String FIND_ACTIVE_USER =
-            sqlBuilder.delete(0, sqlBuilder.length())
-                    .append("SELECT * FROM user WHERE id = :userId AND status = 'active'")
-                    .toString();
 }

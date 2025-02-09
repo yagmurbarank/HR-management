@@ -1,7 +1,6 @@
 package com.ybk.hr_management.repository;
 
 
-import com.ybk.hr_management.model.entity.LeaveRequest;
 import com.ybk.hr_management.model.entity.User;
 
 import java.util.List;
@@ -20,18 +19,10 @@ public interface UserRepository {
 
     void updateUser(User user);
 
+    void deleteUser(Long userId);
+
     void updateUserLeaveRequest(User user);
 
-    List<LeaveRequest> getLeaveRequestsByUserId(Long userId);
-
-    List<Long> getAllUsersByDepartmentId(Long departmentId);
-
     Optional<User> findUserById(Long userId);
-
-    Optional<User> findDeletedUser(Long userId);
-
-    Optional<User> findPassiveUser(Long userId);
-
-    Optional<User> findActiveUser(Long userId);
 
 }
