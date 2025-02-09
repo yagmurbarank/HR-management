@@ -1,7 +1,6 @@
 package com.ybk.hr_management.repository;
 
 import com.ybk.hr_management.model.entity.LeaveRequest;
-import com.ybk.hr_management.model.entity.LeaveType;
 import com.ybk.hr_management.model.enums.Status;
 
 import java.util.List;
@@ -9,11 +8,11 @@ import java.util.List;
 public interface LeaveRequestRepository {
     void createLeaveRequest(LeaveRequest leaveRequest);
 
-    void updateLeaveRequest(LeaveType leaveRequest);
+    void updateLeaveRequest(LeaveRequest leaveRequest);
 
-    void cancelLeaveRequest(LeaveType leaveRequest);
+    void cancelLeaveRequest(LeaveRequest leaveRequest);
 
-    List<LeaveRequest> getLeaveRequestsByUserId(String userId);
+    List<LeaveRequest> getLeaveRequestsByUserId(Long userId);
 
     List<LeaveRequest> getLeaveRequestsByStatus(Status status);
 
@@ -29,7 +28,8 @@ public interface LeaveRequestRepository {
 
     void createLeaveRequests(List<LeaveRequest> leaveRequests);
 
-    void updateLeaveRequests(List<LeaveType> leaveTypes);
+    void updateLeaveRequests(List<LeaveRequest> leaveRequests);
 
-    void cancelLeaveRequests(List<LeaveType> leaveTypes);
+    void cancelLeaveRequests(List<LeaveRequest> leaveRequests);
+
 }
